@@ -22,14 +22,14 @@ B) Utiliser le programmateur en ligne : https://atc1441.github.io/TelinkFlasher.
 
 B1) Lancer le TelinkFlasher sur un smartphone ou sur un ordinateur portable ayant le bluetooth activé :
 
-    ![image](https://github.com/legbruno2/LEG_MI_THERMO/assets/152851976/e6bee399-cdb1-4539-b531-f7611412ab2e)
+![image](https://github.com/legbruno2/LEG_MI_THERMO/assets/152851976/e6bee399-cdb1-4539-b531-f7611412ab2e)
 
 B2) Appuyer sur [Connect]  et sélectionner l'appareil nommé : LYWSD03MMC
 
 B3) Une fois 'connecté' : appuyer sur [Do Activation]
     
     si tout se passe bien , les champs 'Devide known ID' , 'Mi Token' et 'Mi Bind Key' doivent se remplir
-      ![image](https://github.com/legbruno2/LEG_MI_THERMO/assets/152851976/4e36ef82-ff20-4832-b72a-5eabbddeb217)
+![image](https://github.com/legbruno2/LEG_MI_THERMO/assets/152851976/4e36ef82-ff20-4832-b72a-5eabbddeb217)
 
 B4) Appuyer sur [Choisir un fichier]   et sélectionner le fichier 'ATC_Thermomètre.bin' téléchargé plus haut.
 
@@ -66,11 +66,16 @@ merci à https://hackaday.com/2020/12/08/exploring-custom-firmware-on-xiaomi-the
 INSTALLATION :
 =
 ==> installer bluetooth and pybluez
+
 sudo apt-get update
+
 sudo apt-get install bluetooth libbluetooth-dev
+
 sudo pip install pybluez
 
+
 ==> autoriser 'admin' pour le python3  (pour qu'il aie acces à l'interface bluetooth)
+
 sudo setcap cap_net_raw,cap_net_admin+eip $(eval readlink -f `which python3`)
 
 ==> récuperer les deux fichiers bluetooth_utils.py et scanThermoXiaomi.py

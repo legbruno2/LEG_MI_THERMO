@@ -2,11 +2,11 @@
 --------------------------------------------------
 Petite gestion centralisée de la température des différentes pièces de la maison.
 
-A base de thermomètre Xiaomi LYWSD03MMC Bluetooth ( avec firmware modifié )
+Utilisation du thermomètre Xiaomi LYWSD03MMC Bluetooth ( avec firmware modifié )
 
 ![image](https://github.com/legbruno2/LEG_MI_THERMO/assets/152851976/af1b1380-22df-42b6-a78d-fa6d2170fdc9)
 --------------------------------------------------
-Projet réalisé sur les base du site : https://github.com/atc1441/ATC_MiThermometer/blob/master/README.md
+Projet réalisé sur les bases du site : https://github.com/atc1441/ATC_MiThermometer/blob/master/README.md
 
 Les thermomètres Xiaomi ont été acheté en janvier 2024 sur aliexpress.com ( modèle LYWSD03MMC Bluetooth )
 ![image](https://github.com/legbruno2/LEG_MI_THERMO/assets/152851976/471e73b4-5d71-4dab-a208-8f77034073b1)
@@ -32,10 +32,16 @@ B5) Appuyer sur "Start Flashing" pour télécharger le nouveau firmware
 
 ==> A la fin du téléchargement, le thermometre doit redémarrer.
 
+Une fois redémarré, appuyer à nouveau sur "connect"
+dans la liste proposée, le thermomètre doit apparaitre sous le nom ATC_xxyyzz  ou xxyyzz correspond aux 3 derniers octets de l'adresse MAC(voir plus bas)
+
+Une fois connecté, le status doit indiqué : " Detected custom Firmware "
+
+A partir de là, il est possible de modifier différents parametres du thermometre ( en cliquant directement sur le bouton correspondant).
+
 Adresse MAC du thermomètre : 
 
-Au démarrage, le micrologiciel personnalisé affichera les trois derniers octets de l'adresse MAC dans la partie d'affichage de l'humidité sur l'écran LCD pendant 2 secondes chacun
-, les trois premiers octets sont toujours les mêmes (A4:C1:38) et ne sont donc pas affichés. 
+Au démarrage, le micrologiciel personnalisé affichera les trois derniers octets de l'adresse MAC dans la partie d'affichage de l'humidité sur l'écran LCD pendant 2 secondes chacun, les trois premiers octets sont toujours les mêmes (A4:C1:38) et ne sont donc pas affichés. 
 
 Sinon : l'adresse MAC se retrouve aussi dans le nom BLE du thermometre , format : ACT_AABBCC ou AABBCC correspond aux trois derniers octets de l'adresse MAC.
 
@@ -43,8 +49,22 @@ RECUPERATION des INFOS (Température/Humidité) via un appareil bluetooth
 
 De mon coté, j'ai utilisé une raspberry PI 3B avec un petit scénario en Python
 
-Principe, le thermomètre envoie toutes les deux secondes une notification bluetooth dans laquelle a été inscrit les valeurs de température, d'humidité et % de la batterie.
+Principe, le thermomètre envoie toutes les minutes une notification bluetooth dans laquelle a été inscrit les valeurs de température, d'humidité et % de la batterie.
 
-le scénario python récupère toutes les notifications bluetooth et en extrait les infos quand la notification concerne un des thermomètres
+le scénario python récupère toutes les notifications bluetooth et en extrait les infos quand la notification concerne un des thermomètres XIAOMI.
+Utilisation de la librairie pybluez
 
+INSTALLATION :
+
+==> installer bluetooth and pybluez
+sudo apt-get update
+sudo apt-get install bluetooth libbluetooth-dev
+sudo pip install pybluez
+
+==> autoriser 'admin' pour le python3  (pour qu'il aie acces à l'interface bluetooth)
+sudo setcap cap_net_raw,cap_net_admin+eip $(eval readlink -f `which python3`)
+
+==> récuperer les deux fichiers bluetooth_utils.py et scanThermoXiaomi.py
+
+==> lancer le scénario python : scanThermoXiaomi.py
  

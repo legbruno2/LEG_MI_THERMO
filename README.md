@@ -28,7 +28,8 @@ B2) Appuyer sur [Connect]  et sélectionner l'appareil nommé : LYWSD03MMC
 
 B3) Une fois 'connecté' : appuyer sur [Do Activation]
     
-    si tout se passe bien , les champs 'Devide known ID' , 'Mi Token' et 'Mi Bind Key' doivent se remplir
+si tout se passe bien , les champs 'Devide known ID' , 'Mi Token' et 'Mi Bind Key' doivent se remplir
+
 ![image](https://github.com/legbruno2/LEG_MI_THERMO/assets/152851976/4e36ef82-ff20-4832-b72a-5eabbddeb217)
 
 B4) Appuyer sur [Choisir un fichier]   et sélectionner le fichier 'ATC_Thermomètre.bin' téléchargé plus haut.

@@ -1,6 +1,4 @@
-## Gestion centralisée du thermomètre Xiaomi LYWSD03MMC
---------------------------------------------------
-Petite gestion centralisée de la température des différentes pièces de la maison.
+Gestion centralisée du thermomètre Xiaomi LYWSD03MMC
 
 Utilisation du thermomètre Xiaomi LYWSD03MMC Bluetooth ( avec firmware modifié )
 

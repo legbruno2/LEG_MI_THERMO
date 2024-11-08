@@ -1,4 +1,3 @@
-# LEG_MI_THERMO
 ## Gestion centralisée du thermomètre Xiaomi LYWSD03MMC
 --------------------------------------------------
 Petite gestion centralisée de la température des différentes pièces de la maison.
